@@ -10,7 +10,7 @@ import collection.JavaConverters._
 import java.io.FileOutputStream
 import org.apache.commons.io.IOUtils
 
-class JsonBundle 
+class Json2Bundle 
 {
   private val KEY_PREFIX = "##prefix##"
   
@@ -60,14 +60,14 @@ class JsonBundle
   
 }
 
-object JsonBundle
+object Json2Bundle
 {
   private def showHelp():Unit = 
   {
     println("A utility for converting JSON file to message bundles")
     println("Author: bugbug0102")
     println
-    println(s"Usage: ${classOf[JsonBundle].getName} [json file]")
+    println(s"Usage: ${classOf[Json2Bundle].getName} [json file]")
     
   }
   
@@ -75,7 +75,7 @@ object JsonBundle
   {
     if(args.length>=1)
     {
-      new JsonBundle().convert(args(0))
+      new Json2Bundle().convert(args(0))
       
     }else
     {

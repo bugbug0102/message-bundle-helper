@@ -13,12 +13,12 @@ import org.apache.commons.lang3.StringUtils
 import java.io.File
 import java.io.FileOutputStream
 
-class XlsBundle 
+class Xls2Bundle 
 {
   private val pattern = Pattern.compile("(.+)_([a-zA-Z]{2})_([a-zA-Z]{1,2})")
   
   @throws(classOf[Exception])
-  def convert(xlsPath:String):Unit =
+  def convert(xlsPath:String):Int =
   {
     var ret = 0
     val properties = new ListBuffer[Properties]()
@@ -37,7 +37,7 @@ class XlsBundle
       if(nbColumns > 2)
       {
         /** Create Empty Properties **/
-        val range = (1 until nbColumns).toStream
+        val range = (1 until nbColumns)
         properties ++= range.map(p=>new Properties())
         
         while(itr.hasNext())
@@ -111,19 +111,19 @@ class XlsBundle
     {
       IOUtils.closeQuietly(is)
     }
-    
+    return ret
   }
   
 }
 
-object XlsBundle
+object Xls2Bundle
 {
   private def showHelp():Unit = 
   {
     println("A utility for converting XLSX file to message bundles")
     println("Author: bugbug0102")
     println
-    println(s"Usage: ${classOf[XlsBundle].getName} [xls file]")
+    println(s"Usage: ${classOf[Xls2Bundle].getName} [xls file]")
     
   }
   
@@ -131,7 +131,7 @@ object XlsBundle
   {
     if(args.length>=1)
     {
-      new XlsBundle().convert(args(0))
+      new Xls2Bundle().convert(args(0))
       
     }else
     {
