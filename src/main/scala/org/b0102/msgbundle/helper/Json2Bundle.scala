@@ -15,7 +15,7 @@ class Json2Bundle
   private val KEY_PREFIX = "##prefix##"
   
   @throws(classOf[Exception])
-  def convert(jsonPath:String):Unit =
+  def convert(jsonPath:String):Int =
   {
     val file = new File(jsonPath)
     val text = FileUtils.readFileToString(file, "UTF-8")
@@ -56,6 +56,7 @@ class Json2Bundle
         IOUtils.closeQuietly(fos)
       }
     }
+    return map.size
   }
   
 }

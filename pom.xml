@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.b0102</groupId>
 	<artifactId>message-bundle-helper</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>A set of utilities for managing message bundles</name>
-
+	
 	<properties>
 		<scala.version>2.11.8</scala.version>
 		<scala.plugin.version>3.2.2</scala.plugin.version>
